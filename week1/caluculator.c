@@ -5,12 +5,12 @@
 
 int main(void)
 {
-    float x = get_int("x: ");
-    float y = get_int("y: ");
+    double x = get_int("x: ");
+    double y = get_int("y: ");
 
-    float z = x / y;
+    double z = x / y;
 
-    printf("%f\n", z);
+    printf("%.20f\n", z);
 }
 
 // int add(int x, int y)
