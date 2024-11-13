@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../Downloads/src7"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"cs50.h": "c",
+			"stdlib.h": "c"
+		}
+	}
+}
