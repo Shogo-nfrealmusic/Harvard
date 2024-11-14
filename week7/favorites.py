@@ -1,41 +1,10 @@
-import csv
+from cs50 import SQL
 
-from collections import Counter
+db = SQL("sqlite:///favorites.db")
 
-with open("week7/favorites.csv", "r") as file:
-    reader = csv.DictReader(file)
-    counts = Counter()
-    for row in reader:
-        favorite = row["problem"]
-        counts[favorite] += 1
-        
-favorite = input("Favorite: ")
-print(f"{favorite}: {counts[favorite]}")
-    # counts = {}
-    # for row in reader:
-    #     favorite = row["language"]
-    #     if favorite in counts:
-    #         counts[favorite] += 1
-    #     else:
-    #         counts[favorite] = 1
+favorite = input("Favorites:  ")
 
-# for favorite , count in counts.most_common():
-#     print(f"{favorite}: {count}")
+rows = db.execute("SELECT COUNT(*) AS n FROM favorites WHERE problem = ?", favorite)
+row = rows[0]
 
-
-#     scratch, c, python = 0, 0, 0
-    
-#     for row in reader:
-#         favorite = row["language"]
-#         if favorite == "Scratch":
-#             scratch += 1
-#         elif favorite == "C":
-#             c += 1
-#         elif favorite == "Python":
-#             python += 1
-
-# print(f"Scratch: {scratch}")
-# print(f"C: {c}")
-# print(f"Python: {python}")
-    
-    
+print(row["n"])
